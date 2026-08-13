@@ -10,7 +10,8 @@
   <div class="entry">
     {# Full text on the front page, exactly like Tao's blog.               #}
     {# Swap to {{ a.summary }} + a "Read more" link if you prefer excerpts. #}
-    {{ a.content }}
+    {{ a.summary }}
+    <p class="read-more"><a href="{{ SITEURL }}/{{ a.url }}">Continue reading &rarr;</a></p>
   </div>
 </div>
 {% endfor %}
