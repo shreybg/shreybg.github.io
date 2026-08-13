@@ -25,9 +25,9 @@
   --paper: #fff;
   --shade: #f7f7f7;
 
-  --wrapper: 720px;
+  --wrapper: 710px;
   --sidebar: 145px;
-  --gutter: 34px;
+  --gutter: 24px;
 }
 
 /* ---------- reset-ish ---------------------------------------------- */
@@ -91,7 +91,7 @@ img { max-width: 100%; height: auto; }
   border-top: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
   padding: 7px 0;
-  margin-bottom: 22px;
+  margin-bottom: 12px;
   font-size: var(--size-nav);
 }
 
@@ -146,7 +146,7 @@ img { max-width: 100%; height: auto; }
 
 .entry p { margin: 0 0 0.8em; }
 
-.entry h2 { font-size: 19px; margin: 1.25em 0 0.4em; }
+.entry h2:not(.post-title) { font-size: 19px; margin: 1.25em 0 0.4em; }
 .entry h3 { font-size: 16px; margin: 1.15em 0 0.3em; }
 .entry h4 { font-size: 14px; margin: 1.1em 0 0.3em; }
 

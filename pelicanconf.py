@@ -63,9 +63,9 @@ DISPLAY_CATEGORIES_ON_MENU = False
 
 # Sidebar blogroll — (name, url) pairs. Set to () to hide the widget.
 LINKS = (
-    ("Terence Tao", "https://terrytao.wordpress.com/"),
-    ("Power Overwhelming", "https://blog.evanchen.cc/"),
-    ("arXiv math", "https://arxiv.org/list/math/new"),
+    # ("Terence Tao", "https://terrytao.wordpress.com/"),
+    # ("Power Overwhelming", "https://blog.evanchen.cc/"),
+    # ("arXiv math", "https://arxiv.org/list/math/new"),
 )
 
 # Extra nav items beyond your Pages.

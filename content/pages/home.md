@@ -5,6 +5,8 @@ Save_as: index.html
 URL:
 Template: landing
 
+<h2 class="post-title">About me</h2>
+
 I'm Shrey Sharma, a student at UC Berkeley.
 
 Write your introduction here — what you study, what you're working on, what
