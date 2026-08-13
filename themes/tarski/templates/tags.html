@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Tags | {{ SITENAME }}{% endblock %}
+{% block content %}
+<div class="post single">
+  <h2 class="post-title">Tags</h2>
+  <div class="entry">
+    <p class="tagcloud">
+      {% for tag, count, size in tag_cloud %}
+      <a href="{{ SITEURL }}/{{ tag.url }}" class="tag-{{ size }}">{{ tag }}</a>
+      {% endfor %}
+    </p>
+  </div>
+</div>
+{% endblock %}

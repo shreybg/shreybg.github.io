@@ -1,0 +1,21 @@
+{# Renders: "6 August, 2026 in expository, math.CA | Tags: foo, bar | by Terence Tao | 12 comments" #}
+<p class="post-meta">
+  <time datetime="{{ a.date.isoformat() }}">{{ a.locale_date }}</time>
+
+  {% if a.category %}
+  in <a href="{{ SITEURL }}/{{ a.category.url }}" class="cat-link">{{ a.category }}</a>
+  {% endif %}
+
+  {% if a.tags %}
+  | Tags:
+  {% for tag in a.tags %}<a href="{{ SITEURL }}/{{ tag.url }}" class="tag-link">{{ tag }}</a>{% if not loop.last %}, {% endif %}{% endfor %}
+  {% endif %}
+
+  {% if a.author %}
+  | by <a href="{{ SITEURL }}/{{ a.author.url }}" class="author-link">{{ a.author }}</a>
+  {% endif %}
+
+  {% if DISQUS_SITENAME %}
+  | <a href="{{ SITEURL }}/{{ a.url }}#disqus_thread" data-disqus-identifier="{{ a.slug }}">Comments</a>
+  {% endif %}
+</p>

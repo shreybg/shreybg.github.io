@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME }}{% endblock %}
+
+{% block content %}
+<div class="landing">
+
+  {# Whatever you write in content/pages/home.md lands here. #}
+  <div class="entry landing-intro">
+    {{ page.content }}
+  </div>
+
+  {% if articles %}
+  <div class="landing-section">
+    <h3 class="landing-heading">Recent writing</h3>
+    <ul class="landing-posts">
+      {% for a in articles[:LANDING_POST_COUNT|default(5)] %}
+      <li>
+        <span class="landing-date">{{ a.locale_date }}</span>
+        <a href="{{ SITEURL }}/{{ a.url }}">{{ a.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+    <p class="landing-more"><a href="{{ SITEURL }}/{{ INDEX_URL }}">All posts &raquo;</a></p>
+  </div>
+  {% endif %}
+
+  {% if ELSEWHERE %}
+  <div class="landing-section">
+    <h3 class="landing-heading">Elsewhere</h3>
+    <ul class="landing-links">
+      {% for name, link in ELSEWHERE %}
+      <li><a href="{{ link }}">{{ name }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+</div>
+{% endblock %}

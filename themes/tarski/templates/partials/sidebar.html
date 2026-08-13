@@ -1,0 +1,90 @@
+{% set MONTH_NAMES = ['January','February','March','April','May','June',
+                      'July','August','September','October','November','December'] %}
+
+<div id="sidebar">
+
+  {# ---------- Search ---------------------------------------------------- #}
+  <div class="widget">
+    <h3>Search</h3>
+    <form class="searchform" action="https://duckduckgo.com/" method="get" target="_blank">
+      <input type="hidden" name="sites" value="{{ SITEURL|replace('https://','')|replace('http://','') }}">
+      <input type="text" name="q" class="searchfield" aria-label="Search this site">
+      <input type="submit" value="Go" class="searchbutton">
+    </form>
+  </div>
+
+  {# ---------- Recent posts ---------------------------------------------- #}
+  <div class="widget">
+    <h3>Recent posts</h3>
+    <ul>
+      {% for a in (articles|default([]))[:8] %}
+      <li><a href="{{ SITEURL }}/{{ a.url }}">{{ a.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  {# ---------- Archives, grouped by month --------------------------------- #}
+  {% if dates %}
+  {% set month_counts = {} %}
+  {% for a in dates %}
+    {% set key = a.date.strftime('%Y/%m') %}
+    {% if month_counts.update({key: month_counts.get(key, 0) + 1}) %}{% endif %}
+  {% endfor %}
+  <div class="widget">
+    <h3>Archives</h3>
+    <ul>
+      {% for key, count in month_counts|dictsort(reverse=True) %}
+      {% set year = key.split('/')[0] %}
+      {% set month = key.split('/')[1] %}
+      <li><a href="{{ SITEURL }}/archives/{{ year }}/{{ month }}/">{{ MONTH_NAMES[month|int - 1] }} {{ year }}</a> ({{ count }})</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  {# ---------- Categories -------------------------------------------------- #}
+  {% if categories %}
+  <div class="widget">
+    <h3>Categories</h3>
+    <ul>
+      {% for category, arts in categories %}
+      <li><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a> ({{ arts|length }})</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  {# ---------- Tag cloud ---------------------------------------------------- #}
+  {% if tag_cloud %}
+  <div class="widget">
+    <h3>Tags</h3>
+    <p class="tagcloud">
+      {% for tag, count, size in tag_cloud %}
+      <a href="{{ SITEURL }}/{{ tag.url }}" class="tag-{{ size }}" title="{{ count }} posts">{{ tag }}</a>
+      {% endfor %}
+    </p>
+  </div>
+  {% endif %}
+
+  {# ---------- Blogroll ----------------------------------------------------- #}
+  {% if LINKS %}
+  <div class="widget">
+    <h3>Blogroll</h3>
+    <ul>
+      {% for name, link in LINKS %}
+      <li><a href="{{ link }}">{{ name }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  {# ---------- Meta ---------------------------------------------------------- #}
+  <div class="widget">
+    <h3>Meta</h3>
+    <ul>
+      <li><a href="{{ SITEURL }}/archives/">All posts</a></li>
+      {% if FEED_ALL_ATOM %}<li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}">Atom feed</a></li>{% endif %}
+    </ul>
+  </div>
+
+</div><!-- #sidebar -->

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}{{ category }} | {{ SITENAME }}{% endblock %}
+{% block content %}
+<h2 class="listing-title">Posts in <span>{{ category }}</span></h2>
+{% for a in (articles_page.object_list if articles_page else articles) %}
+<div class="post listing">
+  <h3 class="post-title"><a href="{{ SITEURL }}/{{ a.url }}">{{ a.title }}</a></h3>
+  {% include "partials/post_meta.html" %}
+</div>
+{% endfor %}
+{% include "partials/pagination.html" %}
+{% endblock %}

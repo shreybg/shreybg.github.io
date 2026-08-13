@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="{{ DEFAULT_LANG }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+
+  {% if SITESUBTITLE %}<meta name="description" content="{{ SITESUBTITLE }}">{% endif %}
+  <link rel="stylesheet" href="{{ SITEURL }}/theme/css/main.css">
+
+  {% if FEED_ALL_ATOM %}
+  <link rel="alternate" type="application/atom+xml"
+        title="{{ SITENAME }} — Atom feed"
+        href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}">
+  {% endif %}
+
+  {# ---- KaTeX. Paired with pymdownx.arithmatex (generic mode) in pelicanconf.py ---- #}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+          onload="renderMathInElement(document.body, {
+            delimiters: [
+              {left: '\\[', right: '\\]', display: true},
+              {left: '\\(', right: '\\)', display: false}
+            ],
+            throwOnError: false,
+            macros: {
+              '\\R': '\\mathbf{R}',
+              '\\C': '\\mathbf{C}',
+              '\\Z': '\\mathbf{Z}',
+              '\\N': '\\mathbf{N}',
+              '\\Q': '\\mathbf{Q}',
+              '\\eps': '\\varepsilon'
+            }
+          });"></script>
+
+  {% block head %}{% endblock %}
+</head>
+
+<body>
+<div id="wrapper">
+
+  <div id="header">
+    {% if HEADER_IMAGE %}
+    <a href="{{ SITEURL }}/" id="header-image">
+      <img src="{{ SITEURL }}/{{ HEADER_IMAGE }}" alt="">
+    </a>
+    {% endif %}
+
+    <h1 id="site-title"><a href="{{ SITEURL }}/" rel="home">{{ SITENAME }}</a></h1>
+    {% if SITESUBTITLE %}<p id="site-tagline">{{ SITESUBTITLE }}</p>{% endif %}
+
+    <div id="nav">
+      <ul id="nav-pages">
+        <li{% if page is defined and page.slug == 'home' %} class="current"{% endif %}><a href="{{ SITEURL }}/" title="Return to front page">Home</a></li>
+        <li{% if article is defined or (page is not defined and articles is defined) %} class="current"{% endif %}><a href="{{ SITEURL }}/{{ INDEX_URL }}">Blog</a></li>
+        {% for p in pages %}
+        <li{% if page is defined and page.slug == p.slug %} class="current"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+        {% endfor %}
+        {% for name, link in MENUITEMS %}
+        <li><a href="{{ link }}">{{ name }}</a></li>
+        {% endfor %}
+      </ul>
+      {% if FEED_ALL_ATOM %}
+      <ul id="nav-feed">
+        <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" title="Subscribe to the {{ SITENAME }} feed">Subscribe to feed</a></li>
+      </ul>
+      {% endif %}
+    </div>
+  </div><!-- #header -->
+
+  <div id="main">
+    <div id="content">
+      {% block content %}{% endblock %}
+    </div>
+
+    {% include "partials/sidebar.html" %}
+  </div><!-- #main -->
+
+  <div id="footer">
+    <p>{{ SITENAME }} &middot; Built with <a href="https://getpelican.com/">Pelican</a>.
+       Theme after <a href="https://en.wordpress.org/themes/tarski/">Tarski</a> by Ben Eastaugh and Chris Sternal-Johnson.</p>
+  </div>
+
+</div><!-- #wrapper -->
+</body>
+</html>

@@ -1,0 +1,387 @@
+/* ===================================================================
+   Tarski-for-Pelican
+   A recreation of the terrytao.wordpress.com reading experience.
+   Tune everything from the variables below.
+   =================================================================== */
+
+:root {
+  --font-body: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, sans-serif;
+  --font-title: "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+  --font-mono: "DejaVu Sans Mono", Menlo, Consolas, monospace;
+
+  --size-body: 13px;
+  --leading: 1.6;
+
+  --ink: #333;
+  --ink-soft: #666;
+  --ink-faint: #999;
+  --link: #1b6da5;
+  --link-hover: #d54e21;
+  --rule: #ddd;
+  --rule-strong: #000;
+  --paper: #fff;
+  --shade: #f7f7f7;
+
+  --wrapper: 940px;
+  --sidebar: 210px;
+  --gutter: 30px;
+}
+
+/* ---------- reset-ish ---------------------------------------------- */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: var(--size-body)/var(--leading) var(--font-body);
+  -webkit-text-size-adjust: 100%;
+}
+
+a { color: var(--link); text-decoration: none; }
+a:hover, a:focus { color: var(--link-hover); text-decoration: underline; }
+a:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+
+img { max-width: 100%; height: auto; }
+
+#wrapper {
+  width: var(--wrapper);
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+}
+
+/* ---------- header -------------------------------------------------- */
+
+#header { padding-top: 18px; }
+
+#header-image { display: block; }
+#header-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid var(--rule);
+}
+
+#site-title {
+  margin: 18px 0 2px;
+  font: normal 30px/1.2 var(--font-title);
+  letter-spacing: -0.01em;
+}
+#site-title a { color: var(--ink); }
+#site-title a:hover { color: var(--link); text-decoration: none; }
+
+#site-tagline {
+  margin: 0 0 14px;
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+#nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 7px 0;
+  margin-bottom: 25px;
+  font-size: 12px;
+}
+
+#nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; }
+#nav li { margin: 0; padding: 0 12px 0 0; }
+#nav li + li { border-left: 1px solid var(--rule); padding-left: 12px; }
+#nav li.current > a { color: var(--ink); font-weight: bold; }
+#nav-feed li { padding-right: 0; }
+
+/* ---------- two-column body ------------------------------------------ */
+
+#main {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--gutter);
+}
+
+#content {
+  flex: 1 1 auto;
+  min-width: 0;   /* lets long formulas scroll instead of blowing out the grid */
+}
+
+#sidebar {
+  flex: 0 0 var(--sidebar);
+  width: var(--sidebar);
+  font-size: 12px;
+}
+
+/* ---------- posts ----------------------------------------------------- */
+
+.post { margin-bottom: 42px; }
+
+.post-title {
+  margin: 0 0 4px;
+  font: normal 22px/1.25 var(--font-title);
+}
+.post-title a { color: var(--link); }
+
+.post-meta {
+  margin: 0 0 16px;
+  color: var(--ink-faint);
+  font-size: 11px;
+}
+.post-meta a { color: var(--ink-soft); }
+
+.entry p { margin: 0 0 1.1em; }
+
+.entry h2 { font-size: 18px; margin: 1.6em 0 0.5em; }
+.entry h3 { font-size: 15px; margin: 1.5em 0 0.4em; }
+.entry h4 { font-size: 13px; margin: 1.4em 0 0.4em; }
+
+.entry ul, .entry ol { margin: 0 0 1.1em; padding-left: 1.8em; }
+.entry li { margin-bottom: 0.3em; }
+
+.entry blockquote {
+  margin: 1.2em 0;
+  padding: 0 0 0 16px;
+  border-left: 3px solid var(--rule);
+  color: var(--ink-soft);
+}
+
+.entry hr { border: 0; border-top: 1px solid var(--rule); margin: 2em 0; }
+
+.entry img { display: block; margin: 1.2em auto; }
+
+.entry code {
+  font: 12px/1.4 var(--font-mono);
+  background: var(--shade);
+  padding: 1px 4px;
+}
+.entry pre {
+  font: 12px/1.45 var(--font-mono);
+  background: var(--shade);
+  border: 1px solid var(--rule);
+  padding: 10px 12px;
+  overflow-x: auto;
+}
+.entry pre code { background: none; padding: 0; }
+
+.entry table {
+  border-collapse: collapse;
+  margin: 1.2em 0;
+  font-size: 12px;
+}
+.entry th, .entry td { border: 1px solid var(--rule); padding: 5px 9px; text-align: left; }
+.entry th { background: var(--shade); }
+
+/* ---------- listing pages --------------------------------------------- */
+
+.listing-title {
+  font: normal 18px/1.3 var(--font-title);
+  margin: 0 0 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--rule);
+}
+.listing-title span { font-style: italic; }
+
+.post.listing { margin-bottom: 20px; }
+.post.listing .post-title { font-size: 15px; }
+
+.archive-list { margin: 0; }
+.archive-list dt { color: var(--ink-faint); font-size: 11px; margin-top: 12px; }
+.archive-list dd { margin: 0; }
+
+/* ---------- pagination & post nav -------------------------------------- */
+
+.pagination, .post-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 1px solid var(--rule);
+  padding-top: 12px;
+  margin-top: 30px;
+  font-size: 12px;
+}
+.pagination .page-count { color: var(--ink-faint); }
+.post-nav .next { margin-left: auto; text-align: right; }
+
+/* ---------- sidebar widgets --------------------------------------------- */
+
+.widget { margin-bottom: 26px; }
+
+.widget h3 {
+  margin: 0 0 7px;
+  font: bold 12px/1.3 var(--font-title);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 4px;
+}
+
+.widget ul { list-style: none; margin: 0; padding: 0; }
+.widget li { margin-bottom: 3px; line-height: 1.45; }
+
+.searchform { display: flex; gap: 5px; }
+.searchfield {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: 1px solid var(--rule);
+  padding: 3px 5px;
+  font: 12px var(--font-body);
+}
+.searchbutton {
+  border: 1px solid var(--rule);
+  background: var(--shade);
+  padding: 3px 8px;
+  font: 12px var(--font-body);
+  cursor: pointer;
+}
+
+.tagcloud { margin: 0; line-height: 1.9; }
+.tagcloud a { margin-right: 6px; white-space: nowrap; }
+.tag-1 { font-size: 18px; }
+.tag-2 { font-size: 16px; }
+.tag-3 { font-size: 14px; }
+.tag-4 { font-size: 12px; }
+.tag-5 { font-size: 11px; }
+
+/* ---------- footer -------------------------------------------------------- */
+
+#footer {
+  clear: both;
+  margin-top: 40px;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+  color: var(--ink-faint);
+  font-size: 11px;
+}
+
+/* ===========================================================================
+   THEOREM ENVIRONMENTS
+   The boxed theorems on Tao's blog are plain CSS: a 1px black box.
+   Usage in Markdown (needs the `attr_list` + `md_in_html` extensions):
+
+     <div class="theorem" markdown="1">
+     **Theorem 1 (Pythagoras)** For a right triangle, \(a^2+b^2=c^2\).
+     </div>
+
+   =========================================================================== */
+
+.theorem, .lemma, .proposition, .corollary,
+.definition, .conjecture, .remark, .example, .exercise {
+  border: 1px solid var(--rule-strong);
+  padding: 10px 14px;
+  margin: 1.4em 0;
+  background: var(--paper);
+}
+
+/* Statements are set in italic, as in the AMS style; their bold run-in
+   heading stays upright. */
+.theorem, .lemma, .proposition, .corollary, .conjecture {
+  font-style: italic;
+}
+.theorem strong, .lemma strong, .proposition strong,
+.corollary strong, .conjecture strong { font-style: normal; }
+
+/* Definitions and remarks are upright but still boxed. */
+.definition, .remark, .example, .exercise { font-style: normal; }
+
+/* Softer variants if a full black box is too heavy for a given environment. */
+.remark, .example { border: 1px solid var(--rule); background: var(--shade); }
+
+.theorem > p:first-child, .lemma > p:first-child,
+.proposition > p:first-child, .corollary > p:first-child,
+.definition > p:first-child, .conjecture > p:first-child,
+.remark > p:first-child, .example > p:first-child,
+.exercise > p:first-child { margin-top: 0; }
+
+.theorem > p:last-child, .lemma > p:last-child,
+.proposition > p:last-child, .corollary > p:last-child,
+.definition > p:last-child, .conjecture > p:last-child,
+.remark > p:last-child, .example > p:last-child,
+.exercise > p:last-child { margin-bottom: 0; }
+
+/* Proofs are unboxed and closed with a tombstone. */
+.proof { margin: 1.4em 0; }
+.proof::before { content: "Proof. "; font-style: italic; }
+.proof::after { content: "\25A1"; float: right; margin-left: 8px; }
+.proof::after { clear: both; }
+
+/* ---------- KaTeX ---------------------------------------------------------- */
+
+.katex { font-size: 1.05em; }
+
+/* Long displayed equations scroll horizontally rather than overflowing. */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 4px 0;
+}
+
+/* ---------- responsive ------------------------------------------------------ */
+
+@media (max-width: 820px) {
+  #main { display: block; }
+  #sidebar {
+    width: auto;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid var(--rule);
+  }
+  #site-title { font-size: 24px; }
+  body { font-size: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* ---------- landing page ---------------------------------------------------
+   Used by templates/landing.html for the site root. Wider measure than the
+   blog, no sidebar, and a quieter list of recent posts.
+   -------------------------------------------------------------------------- */
+
+.landing { max-width: 620px; }
+
+.landing-intro { font-size: 14px; line-height: 1.65; }
+.landing-intro p:first-child { margin-top: 0; }
+
+.landing-section { margin-top: 34px; }
+
+.landing-heading {
+  margin: 0 0 10px;
+  font: bold 11px/1.3 var(--font-title);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 5px;
+}
+
+.landing-posts { list-style: none; margin: 0; padding: 0; }
+.landing-posts li {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+.landing-date {
+  flex: 0 0 105px;
+  color: var(--ink-faint);
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.landing-more { margin: 12px 0 0; font-size: 12px; }
+
+.landing-links { list-style: none; margin: 0; padding: 0; }
+.landing-links li { display: inline; }
+.landing-links li:not(:last-child)::after { content: " · "; color: var(--ink-faint); }
+
+@media (max-width: 560px) {
+  .landing-posts li { display: block; }
+  .landing-date { display: block; }
+}

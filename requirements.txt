@@ -1,0 +1,5 @@
+pelican>=4.9
+markdown>=3.5
+pymdown-extensions>=10.7
+Pygments>=2.17
+ghp-import>=2.1
