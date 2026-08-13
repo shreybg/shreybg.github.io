@@ -5,7 +5,7 @@ from datetime import date
 AUTHOR = "Your Name"
 SITENAME = "What's new"
 SITESUBTITLE = "Updates on my research and expository papers, discussion of open problems, and other maths-related topics."
-SITEURL = "https://shreybg.github.io"  # empty for local dev; publishconf.py overrides it
+SITEURL = ""  # empty for local dev; publishconf.py overrides it
 
 PATH = "content"
 TIMEZONE = "America/Los_Angeles"

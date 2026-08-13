@@ -5,7 +5,7 @@ sys.path.append(os.curdir)
 from pelicanconf import *  # noqa: F401,F403
 
 # Set this to your real domain before deploying. Everything else inherits.
-SITEURL = "https://example.com"
+SITEURL = "https://shreybg.github.io"
 RELATIVE_URLS = False
 
 FEED_ALL_ATOM = "feeds/all.atom.xml"
