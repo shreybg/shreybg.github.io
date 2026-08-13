@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>What's new - expository</title><link href="https://example.com/" rel="alternate"/><link href="https://example.com/feeds/expository.atom.xml" rel="self"/><id>https://example.com/</id><updated>2026-08-12T09:00:00-07:00</updated><subtitle>Updates on my research and expository papers, discussion of open problems, and other maths-related topics.</subtitle><entry><title>A first post, with theorems</title><link href="https://example.com/a-first-post/" rel="alternate"/><published>2026-08-12T09:00:00-07:00</published><updated>2026-08-12T09:00:00-07:00</updated><author><name>Your Name</name></author><id>tag:example.com,2026-08-12:/a-first-post/</id><summary type="html">&lt;p&gt;Inline math works the way you&amp;rsquo;d expect: the map &lt;span class="arithmatex"&gt;\(f(x) = x^2 - \varepsilon\)&lt;/span&gt;
+has a fixed point whenever &lt;span class="arithmatex"&gt;\(\varepsilon\)&lt;/span&gt; is small. Note that &lt;span class="arithmatex"&gt;\(a_{i,j}\)&lt;/span&gt; and
+&lt;span class="arithmatex"&gt;\(x_1 \cdot x_2\)&lt;/span&gt; survive Markdown intact, which is the whole reason for
+using arithmatex rather than raw KaTeX delimiters.&lt;/p&gt;
+&lt;p&gt;Displayed equations use double dollars:&lt;/p&gt;
+&lt;div class="arithmatex"&gt;\[\zeta(s) = \sum_{n=1}^{\infty} \frac …&lt;/div&gt;</summary><content type="html">&lt;p&gt;Inline math works the way you&amp;rsquo;d expect: the map &lt;span class="arithmatex"&gt;\(f(x) = x^2 - \varepsilon\)&lt;/span&gt;
+has a fixed point whenever &lt;span class="arithmatex"&gt;\(\varepsilon\)&lt;/span&gt; is small. Note that &lt;span class="arithmatex"&gt;\(a_{i,j}\)&lt;/span&gt; and
+&lt;span class="arithmatex"&gt;\(x_1 \cdot x_2\)&lt;/span&gt; survive Markdown intact, which is the whole reason for
+using arithmatex rather than raw KaTeX delimiters.&lt;/p&gt;
+&lt;p&gt;Displayed equations use double dollars:&lt;/p&gt;
+&lt;div class="arithmatex"&gt;\[\zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s} = \prod_{p} \left(1 - p^{-s}\right)^{-1}.\]&lt;/div&gt;
+&lt;h2 id="boxed-environments"&gt;Boxed environments&lt;/h2&gt;
+&lt;p&gt;This is the piece that needs custom CSS on WordPress.com and is free here:&lt;/p&gt;
+&lt;div class="theorem"&gt;
+&lt;p&gt;&lt;strong&gt;Theorem 1 (Euclid)&lt;/strong&gt; There are infinitely many primes.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="proof"&gt;
+&lt;p&gt;Suppose &lt;span class="arithmatex"&gt;\(p_1, \dots, p_n\)&lt;/span&gt; were all of them. Then &lt;span class="arithmatex"&gt;\(N = p_1 \cdots p_n + 1\)&lt;/span&gt; is
+divisible by no &lt;span class="arithmatex"&gt;\(p_i\)&lt;/span&gt;, yet has some prime factor.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;The available classes are &lt;code&gt;theorem&lt;/code&gt;, &lt;code&gt;lemma&lt;/code&gt;, &lt;code&gt;proposition&lt;/code&gt;, &lt;code&gt;corollary&lt;/code&gt;,
+&lt;code&gt;definition&lt;/code&gt;, &lt;code&gt;conjecture&lt;/code&gt;, &lt;code&gt;remark&lt;/code&gt;, &lt;code&gt;example&lt;/code&gt;, &lt;code&gt;exercise&lt;/code&gt;, and &lt;code&gt;proof&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="remark"&gt;
+&lt;p&gt;&lt;strong&gt;Remark.&lt;/strong&gt; The &lt;code&gt;markdown="1"&lt;/code&gt; attribute is what lets Markdown syntax work
+&lt;em&gt;inside&lt;/em&gt; the &lt;code&gt;div&lt;/code&gt;. It needs the &lt;code&gt;md_in_html&lt;/code&gt; extension, which is already
+switched on in &lt;code&gt;pelicanconf.py&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;</content><category term="expository"/><category term="analysis"/><category term="worked examples"/></entry></feed>
