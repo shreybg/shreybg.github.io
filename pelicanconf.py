@@ -116,5 +116,5 @@ COPYRIGHT_YEAR = date.today().year
 LANDING_POST_COUNT = 5
 ELSEWHERE = (
     ("GitHub", "https://github.com/shreybg"),
-    ("Email", "mailto:shrey.sharma@berkeley.edu"),
+    ("LinkedIn", "https://www.linkedin.com/in/shrey-sharma-996452273/"),
 )
