@@ -118,3 +118,11 @@ ELSEWHERE = (
     ("GitHub", "https://github.com/shreybg"),
     ("LinkedIn", "https://www.linkedin.com/in/shrey-sharma-996452273/"),
 )
+
+PLUGINS = ["pelican.plugins.sitemap"]
+
+SITEMAP = {
+    "format": "xml",
+    "priorities": {"articles": 0.7, "indexes": 0.5, "pages": 0.4},
+    "changefreqs": {"articles": "monthly", "indexes": "daily", "pages": "monthly"},
+}
