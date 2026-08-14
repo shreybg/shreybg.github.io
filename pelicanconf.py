@@ -21,9 +21,9 @@ HEADER_IMAGE = "images/header.jpg"
 
 STATIC_PATHS = ["images", "extra"]
 # Drop a favicon.ico in content/extra/ to enable this.
-# EXTRA_PATH_METADATA = {
-#     "extra/favicon.ico": {"path": "favicon.ico"},
-# }
+EXTRA_PATH_METADATA = {
+    "extra/favicon.ico": {"path": "favicon.ico"},
+}
 
 # ---------------------------------------------------------------- URLs
 # Dateless post URLs, like Evan Chen's scheme: /my-post-title/
