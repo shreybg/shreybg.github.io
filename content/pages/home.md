@@ -7,12 +7,15 @@ Template: landing
 
 <h2 class="post-title">About me</h2>
 
-I'm Shrey Sharma, a student at UC Berkeley.
+This is the homepage of Shrey Sharma. I'm currently studying 
+electrical engineering and computer science at UC Berkeley. 
 
-Write your introduction here — what you study, what you're working on, what
-you're interested in. Two or three short paragraphs is plenty; a landing page
-works better when it's shorter than you think it should be.
+At the moment, I enjoy:
 
-You can link to things inline, like [your CV](/cv/) or a
-[project](https://example.com), or use the Elsewhere list below, which is
-configured in `pelicanconf.py`.
+- watching movies, TV shows, YouTube documentaries, etc. about
+most everything,
+- learning math and physics, and occasionally participating in competitions, 
+e.g. the Putnam,
+- and playing net sports (badminton, basketball) as well as card and board games
+(poker, Catan). 
+
