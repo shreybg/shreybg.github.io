@@ -2,9 +2,9 @@ from datetime import date
 
 # ---------------------------------------------------------------- identity
 
-AUTHOR = "Your Name"
-SITENAME = "What's new"
-SITESUBTITLE = "Updates on my research and expository papers, discussion of open problems, and other maths-related topics."
+AUTHOR = "Shrey Sharma"
+SITENAME = "Varia"
+SITESUBTITLE = "A collection of assorted thoughts."
 SITEURL = ""  # empty for local dev; publishconf.py overrides it
 
 PATH = "content"
