@@ -1,9 +1,13 @@
 Title: About
 Slug: about
 
-This is the about page. On Tao's blog this is where the commenting policy
-and the LaTeX instructions live.
+This site will act as a window
+into my thoughts. I intend for it to host:
 
-Every Markdown file you drop in `content/pages/` becomes a static page and
-is added to the nav bar automatically, so this is how you build out
-"Career advice", "On writing", "Books", and so on.
+- a blog, where I write about notable events, bits of math,
+physics, or machine learning, and whatever else happens to
+be on my mind,
+- updates on, and documentation of, research and projects I
+work on,
+- and reviews of particularly memorable media that I've 
+recently read or watched.
